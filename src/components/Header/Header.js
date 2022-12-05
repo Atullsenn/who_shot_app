@@ -19,7 +19,7 @@ import classNames from "classnames";
 
 // styles
 import useStyles from "./styles";
-import Logo1 from "../../images/Logo1.png"
+import Logo2 from "../../images/Logo2.png"
 
 // components
 import { Badge, Typography } from "../Wrappers";
@@ -103,7 +103,7 @@ export default function Header(props) {
           )}
         </IconButton>
         <Typography variant="h6" weight="medium" className={classes.logotype}>
-         <img className={classes.logotypeImage} src={Logo1} alt="logo"  />
+         <img className={classes.logotypeImage} src={Logo2} alt="logo"  />
         </Typography>
         <div></div>
         <div className={classes.grow} />

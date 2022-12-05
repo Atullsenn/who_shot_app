@@ -17,7 +17,7 @@ const CreateTermsandservices = () => {
     
     let postdata= {heading,description}
     
-    fetch(URL + "/addterms&conditions",{
+    fetch("http://localhost:8000/termsConditions",{
       method:"POST",
       headers:{
         'Accept':'application/json',
@@ -41,11 +41,11 @@ const CreateTermsandservices = () => {
   }, []);
   
   const getData1 = async () => {
-    await Axios.get(URL + '/getterms&conditions').then(res => {
+    await Axios.get('http://localhost:8000/getTerms').then(res => {
     //console.log(res.data.message[0])
-     getData(res.data.message[0]);
-     setHeading(res.data.message[0].heading);
-     setDescriptions(res.data.message[0].description)     
+     getData(res.data.data[0]);
+     setHeading(res.data.data[0].heading);
+     setDescriptions(res.data.data[0].description)     
     }).catch(err => {
       console.log(err)
       console.log("err")

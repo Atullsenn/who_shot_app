@@ -13,11 +13,9 @@ const ContactDetails = () => {
   const [data, getData] = useState([]);
 var phone;
   const createContactDetails = (e) => {
-    //console.log(phone,email,address);
-    
 
     let data= {phone,email,address}
-    fetch(URL + "/contact",{
+    fetch("http://localhost:8000/contact",{
       method:"POST",
       headers:{
         'Accept':'application/json',
@@ -38,11 +36,11 @@ var phone;
   }, []);
 
   const getData1 = async()=>{
-    await axios.get(URL + "/getContact").then((res)=>{
+    await axios.get("http://localhost:8000/getContact").then((res)=>{
       //console.log(res.data[0].email);
-      setEmail(res.data[0].email)
-      setAddress(res.data[0].address)
-      setPhonenumber(res.data[0].phone)
+      setEmail(res.data.data[0].email)
+      setAddress(res.data.data[0].address)
+      setPhonenumber(res.data.data[0].phone)
 
     }).catch((err)=>{
       console.log(err)

@@ -15,7 +15,7 @@ const CreatePrivacypolicy = () => {
   const submit = (e) => {
     console.log(heading, description);
     let data = { heading, description };
-    fetch(URL + "/addPrivacyPolicy", {
+    fetch("http://localhost:8000/privacy", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -39,12 +39,10 @@ const CreatePrivacypolicy = () => {
   }, []);
   const getData1 = async () => {
     await axios
-      .get(URL + "/getprivacypolicy")
+      .get("http://localhost:8000/getPrivacy")
       .then((res) => {
-        // console.log(res.data[0].heading);
-        // console.log(res.data[0].description);
-        setHeading(res.data[0].heading);
-        setDescription(res.data[0].description);
+        setHeading(res.data.data[0].heading);
+        setDescription(res.data.data[0].description);
       })
       .catch((err) => {
         console.log(err);

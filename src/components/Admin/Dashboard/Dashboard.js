@@ -10,7 +10,7 @@ const Dashboard = () => {
                             <h4 className="page-title">Dashboard</h4>
                         </div>
                         <div className="col-lg-3 col-sm-8 col-md-8 col-xs-12">
-                            <div className="create-applications-btn-area">
+                            {/* <div className="create-applications-btn-area">
                                 <a href="#" className="create-application-btn" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal-search">
                                     <i className="fa fa-plus-circle" aria-hidden="true"></i> Create Application</a>
@@ -37,7 +37,7 @@ const Dashboard = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

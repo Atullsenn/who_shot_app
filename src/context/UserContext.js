@@ -55,8 +55,7 @@ export { UserProvider, useUserState, useUserDispatch, loginUser, signOut };
 // ###########################################################
 
 function loginUser(dispatch, login, password, history, setIsLoading, setError) {
-  let url = '/loginAdminn';
-  //let url = "http://localhost/bootstrap-laravel-react/backend-server/api/admin-login";
+  let url = 'http://localhost:8000/loginAdmin';
   setError(false);
   // setIsLoading(true);
   axios.post(url, {
@@ -70,7 +69,7 @@ function loginUser(dispatch, login, password, history, setIsLoading, setError) {
       localStorage.setItem('superAdminId', JSON.stringify(response.data.user.id));
       localStorage.setItem('loginUserType', JSON.stringify(response.data.user.user_type));
       localStorage.setItem('superAdminEmail', JSON.stringify(response.data.user.email));
-      localStorage.setItem('superAdminName', JSON.stringify(response.data.user.first_name));
+      localStorage.setItem('superAdminName', JSON.stringify(response.data.user.name));
       setError(null)
       setIsLoading(false)
       dispatch({ type: 'LOGIN_SUCCESS', UserType: JSON.stringify(response.data.user.type) })

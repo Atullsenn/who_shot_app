@@ -19,7 +19,7 @@ const AboutPage = () => {
   const submit = (e) => {
     console.log(heading, description);
     let data = { heading, description };
-    fetch(URL + "/postAbout", {
+    fetch("http://localhost:8000/aboutUs", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -42,13 +42,13 @@ const AboutPage = () => {
 
   const fetchAboutData = async () => {
     await axios
-      .get(URL + "/getabout")
+      .get("http://localhost:8000/getAboutUs")
       .then((res) => {
         console.log(res.data.message);
         // console.log(res.data[0].heading);
         // console.log(res.data[0].description);
-        setHeading(res.data.message[0].heading);
-        setDescription(res.data.message[0].description);
+        setHeading(res.data.data[0].heading);
+        setDescription(res.data.data[0].description);
       })
       .catch((err) => {
         console.log(err);

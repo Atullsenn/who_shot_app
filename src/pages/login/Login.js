@@ -13,7 +13,7 @@ import useStyles from "./styles";
 
 // logo
 //import Logo1 from "../../images/Logo1.png"
-import Logo1 from "../../images/Logo1.png"
+import Logo2 from "../../images/Logo2.png"
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
@@ -27,12 +27,12 @@ function Login(props) {
   // local
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
-  var [loginValue, setLoginValue] = useState("mobapps@gmail.com");
-  var [passwordValue, setPasswordValue] = useState("adminn");
+  var [loginValue, setLoginValue] = useState("admin1@gmail.com");
+  var [passwordValue, setPasswordValue] = useState("12345");
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
-        <img src={Logo1} alt="logo" className={classes.logotypeImage} />
+        <img src={Logo2} alt="logo" className={classes.logotypeImage} />
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>
