@@ -11,6 +11,9 @@ app.use( bodyParser.json() );
 const cors = require('cors');
 const db = require('./db/dbConnection')
 app.use(cors());
+const multer = require('multer');
+
+
 
 
 //Import Controllers
@@ -22,12 +25,46 @@ const Contact = require('./controllers/Contact/contact');
 const getContact = require('./controllers/Contact/getContact');
 const aboutUs = require('./controllers/aboutUs/about');
 const getAboutUs = require('./controllers/aboutUs/getAbout');
+const getHunts = require('./controllers/appUsers/getHunts');
+const updateHuntStatus = require('./controllers/appUsers/updateHuntStatus');
+const deleteHunt = require('./controllers/appUsers/deleteHunt');
+
 
 
 
 //For Mobile
 const userSignUp = require('./controllers/appUsers/signUp');
 const userLogin = require('./controllers/appUsers/userLogin');
+const createHunt = require('./controllers/appUsers/createHunt');
+
+
+
+//upload Image Function
+const storage = multer.diskStorage({
+  destination:(req,file,cb)=>{
+    cb(null,"./public/image")
+  },
+  filename:(req,file,cb)=>{
+    cb(null,new Date().getTime() + path.extname(file.originalname));
+  }
+})
+
+
+const imageFilter = function (req, file, cb) {
+if (
+  file.mimetype == "image/png" ||
+  file.mimetype == "image/jpg" ||
+  file.mimetype == "image/jpeg"
+ 
+) {
+  cb(null, true);
+} else {
+  cb(null, false);
+  return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
+}
+};
+
+const upload = multer({storage: storage,fileFilter:imageFilter,limits:{fileSize:1024*1024*10}},)
 
 
 
@@ -42,11 +79,15 @@ app.post('/contact',Contact);
 app.get('/getContact',getContact);
 app.post('/aboutUs',aboutUs);
 app.get('/getAboutUs', getAboutUs);
+app.get("/getHunts",getHunts);
+app.post("/updateHuntStatus",updateHuntStatus);
+app.post('/deleteHunt', deleteHunt);
 
 
 //Routes For Mobile App
 app.post('/userSignUp', userSignUp);
 app.post('/userLogin',userLogin);
+app.post('/createHunt', createHunt);
 
 
 app.post("/loginAdmin", (req, res) => {

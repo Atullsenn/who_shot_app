@@ -1,6 +1,10 @@
-const db = require('../../db/dbConnection');
+const bcrypt = require ('bcryptjs');
+const db = require('../../db/dbConnection'); 
+ 
 
 const userLogin = (req,res)=>{
+  const saltRounds =10
+  var hash = bcrypt.hashSync(req.body.password, saltRounds);
 if (!req.body.email && req.body.email == null) {
     return res.status(400).send({
       success: "false",
@@ -13,36 +17,41 @@ if (!req.body.email && req.body.email == null) {
       msg: "password is empty!",
     });
   }
+
+
+
   // var encryptPassowrd = md5Hash.MD5(req.body.password);
   //`SELECT * FROM tbl_users WHERE email = ${sql.escape(req.body.login)} AND password=${(encryptPassowrd)}`
   db.query(
-    'SELECT * FROM tbl_app_users WHERE password="'+ req.body.password+'" AND email ="'+req.body.email+'"',
-    (err, result) => {
+    'SELECT * FROM tbl_app_users WHERE password="'+req.body.password+'" AND email ="'+req.body.email+'"',
+    async(err, results) => {
       if (err) {
-        throw err; 
-        return res.status(400).send({
-          msg: err,
-        });
+        res.status(500).send({
+          success: false,
+          message:err
+        })
       }
-      if (!result.length) {
-        return res.status(401).send({
-          success: "false",
-          msg: "Email or password is incorrect!",
-          
-        });
-      } 
-      else{
-        return res.status(200).send({
-                  success:'true',
-                  msg: 'Login Successfully!',
-                  user: result[0]
-                });
+      if(!results.length){
+        res.status(400).send({
+          success: false,
+          message: 'Email Or Password Incorrect'
+        })
       }
-
-    }
-  );
+      else{  
+        res.status(200).send({
+          success: true,
+          message: 'Login Successfully',
+          user: results[0]
+        })     
+       
+        }
+     
+})
 
 }
 
 
 module.exports = userLogin;
+
+
+

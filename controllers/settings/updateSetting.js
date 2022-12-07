@@ -1,6 +1,6 @@
 const sql = require("../../db/dbConnection");
   
-  exports.Users = (request,res)=>{
+  const updateUsers = (request,res)=>{
 
     if(request.body.profile_image){
       var sqls = 'UPDATE  tbl_users SET name ="'+request.body.name+'", phone = "'+request.body.phone+'", address = "'+request.body.address+'", gender = "'+request.body.gender+'", postal = "'+request.body.postal+'" WHERE id = "'+request.body.id+'"'
@@ -30,3 +30,7 @@ const sql = require("../../db/dbConnection");
 
     
   }
+
+
+
+  module.exports = updateUsers;
