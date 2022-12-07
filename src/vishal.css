@@ -1,0 +1,824 @@
+@import "rsuite/dist/rsuite.css";
+
+/* Vishal csss */
+.Styled-badge-66 {
+    background-color:  #912c00 !important;
+}
+
+.MuiAppBar-colorPrimary {
+    background-color: #ffffff !important;
+}
+
+.makeStyles-headerIcon-24 {
+    color:  #912c00 !important;
+}
+
+/* sidebarr&&&&&&&&&&&&&&& */
+
+
+.makeStyles-linkIcon-52 {
+    color:  #912c00;
+}
+
+.makeStyles-link-48:hover div svg,
+.makeStyles-link-48:hover div span {
+    color: #fff !important;
+}
+
+.makeStyles-link-48:hover,
+.makeStyles-link-48:focus .makeStyles-linkIcon-52 {
+    color: #fff !important;
+}
+
+.makeStyles-linkIconActive-53 {
+    color: #ffffff !important;
+}
+
+.makeStyles-link-48:hover,
+.makeStyles-link-48:focus {
+    background-color:  #912c00 !important;
+    color: white !important;
+}
+
+.makeStyles-linkActive-50 {
+    background-color:  #912c00 !important;
+
+}
+
+.makeStyles-linkTextActive-55 {
+    color: White !important;
+}
+
+.table thead th {
+    background-color: #e6e6e6 !important;
+    color: #912c00 !important;
+
+}
+
+.table-data-search-box .searchButton {
+    background-color:  #912c00 !important;
+    border: 1px solid  #912c00 !important;
+}
+
+.table-data-search-box .searchTerm {
+    border: 1px solid  #912c00 !important;
+}
+
+
+
+.mange-admins-edit-btn i {
+    color: #4e4e4c !important;
+}
+
+a.mange-admins-dlt-btn svg.MuiSvgIcon-root {
+    color:  #912c00 !important;
+}
+
+.admin-appuser-application-marchent .nav-tabs .nav-link.active {
+    background-color: #912c00 !important;
+}
+
+.admin-appuser-application-marchent .nav-tabs .tab-btn {
+    background-color: #47598a !important;
+
+}
+
+.mange-admins-dlt-btn i {
+    color: #912c00 !important;
+}
+
+/* setting^^^^^^^^^^^^^^^^^^^^^^^ */
+.setting-tab-main-area {
+    background-color: #912c00 !important;
+}
+
+.setting-tab-main-area .nav-tabs .nav-link.active {
+    color: #912c00 !important;
+}
+
+.setting-tab-main-area .nav-tabs .nav-link {
+    background-color: #912c00;
+}
+
+.change-poto-btn {
+    background-color: #912c00 !important;
+}
+
+.contact-form-submint-btn {
+    background-color: #912c00 !important;
+}
+
+.submit-password-change-btn {
+    background-color: #912c00 !important;
+}
+
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    background-color: #912c00 !important;
+}
+
+.onoffswitch-inner:before {
+    color: #912c00 !important;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+    background-color: #912c00 !important;
+}
+
+/* ADD LOCATION%%%%%%%%%%%%%%%%%%%%%%% */
+.add-location {
+    padding: 25px 14px;
+
+}
+
+.container-fluid {
+    /* padding: 0 35px !important; */
+}
+
+.add-location table {
+    box-shadow: 0px 1px 2px 1px rgb(154 154 204 / 22%);
+
+}
+
+
+
+/* .add-location table th {
+    text-align: center;
+} */
+
+/* td {
+    text-align: center !important;
+} */
+
+/* tr {
+    background-color: #fff !important;
+    text-align: center;
+
+} */
+
+/* booking&&&&&&&&&&&&&&&&&&&&&&&& */
+.booking-wrapper .col-md-3 {
+    display: flex;
+    align-items: center;
+}
+
+.booking-wrapper .col-md-5 {
+    display: flex;
+    align-items: center;
+}
+
+.booking-wrapper .col-md-3 {
+    display: flex;
+    align-items: center;
+}
+
+.booking-wrapper .col-md-3 input {
+    padding: 5px;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #3e3e3e;
+    font-size: 14px;
+    outline: none;
+}
+
+.booking-wrapper .col-md-3 button {
+    height: 30px;
+    background-color: #912c00;
+    border: 1px solid #912c00;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+
+.css-hlj6pa-MuiDialogActions-root {
+    justify-content: space-between !important;
+}
+
+.css-1pskkfw-MuiModal-root-MuiDialog-root .MuiDialogContent-root input {
+    border-top: none;
+    width: 400px;
+    margin: 10px 0;
+    padding: 5px;
+    border-bottom: 1px solid #912c00;
+    border-right: none;
+    border-left: none;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    color: #ffffff !important;
+    outline: none !important;
+    height: 30px;
+    background-color: #912c00 !important;
+}
+
+.booking-wrapper .col-md-1 {
+    display: flex;
+    align-items: center;
+}
+
+.booking-wrapper .col-md-1 button {
+    width: 100%;
+    background-color: #912c00;
+    color: #ffffff;
+    outline: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    font-size: 0.7rem !important;
+    background-color: #fff;
+}
+
+.MuiFormControl-marginNormal {
+    background-color: #fff;
+}
+
+.MuiInputBase-input {
+    padding: 2 !important;
+}
+
+.booking-wrapper .col-md-2 {
+    display: flex;
+    align-items: center;
+}
+
+/* Mangeloction%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+.booking-wrapper .col-md-3 .manage-loction-button {
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #912c00;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+
+}
+
+
+
+
+
+[role=tooltip].popup-content {
+    left: 564.75px !important;
+    /* height: 200px !important; */
+    width: 370px !important;
+    padding: 20px !important;
+    top: 20% !important;
+}
+
+[role=tooltip].popup-content h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+[role=tooltip].popup-content input {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 5px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    color: #3e3e3e;
+    font-size: 14px;
+    border: 1px solid #912c00;
+}
+
+.popup-overlay {
+    background: rgba(0, 0, 0, .5) !important;
+    opacity: .8;
+}
+
+.popup-arrow {
+    display: none !important;
+}
+
+.popup-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup-button button {
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #912c00;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+
+}
+
+/* add parkking&&&&&&&&&&&&&&&&&& */
+.days {
+    display: flex !important;
+    align-items: center;
+}
+
+.days label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.dropdown {
+    width: 100%;
+}
+
+button#dropdown-basic {
+    width: 100%;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    color: #848484;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(176, 176, 176);
+    box-shadow: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin-top: 3px;
+}
+
+.dropdown-menu.show {
+    width: 100%;
+    background: #912c00;
+}
+
+.MuiButton-contained {
+    background-color: #912c00 !important;
+    color: #fff !important;
+}
+
+.MuiButton-contained:hover {
+    background-color: #ffffff !important;
+    color: #912c00 !important;
+}
+
+.dropdown-menu.show .dropdown-item {
+    color: white;
+    font-weight: 500;
+}
+
+.dropdown-menu.show .dropdown-item:active {
+    background-color: #fff !important;
+}
+
+.dropdown-menu.show .dropdown-item:hover {
+    color: #912c00;
+}
+
+.days .css-dmmspl-MuiFormGroup-root {
+    display: inline !important;
+}
+
+.heading-add-parking {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0px;
+}
+
+/* customersParking Details&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+.application-detail-heading-area {
+    display: flex;
+}
+
+.rs-picker-toggle-active,
+.rs-picker.rs-picker-focused {
+    box-shadow: none !important;
+}
+
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #1a1e4e !important;
+    border-width: 1px !important;
+}
+
+.MuiInput-underline:after {
+    border-bottom: 1px solid #1a1e4e !important;
+}
+
+.application-detail-heading-area .css-gcwvw8-MuiAutocomplete-root {
+    margin-left: 150px;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    margin-top: 5px;
+
+}
+
+.application-detail-heading-area .css-gcwvw8-MuiAutocomplete-root .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    margin-bottom: 0;
+    top: -10px;
+}
+
+.css-gcwvw8-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+    height: 0px;
+}
+
+
+/* bookig Search ^%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+
+
+
+
+
+.bookings-snp {
+    display: flex;
+    justify-content: end;
+}
+
+a {
+    color: #3e3e3e;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Payment %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+.Payment .col-md-3 {
+    display: flex;
+    align-items: center;
+}
+
+.Payment .col-md-4 {
+    display: flex;
+    align-items: center;
+}
+
+.Payment .col-md-1 {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.Payment .col-md-1 button {
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #912c00;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.rs-picker-toggle-wrapper {
+    width: 100%;
+}
+
+/* Notifiaction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+.add-notification {
+    display: flex;
+    align-items: center;
+}
+
+.add-notification button {
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #912c00;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    outline: none;
+
+}
+
+.notification-field {
+    width: 500px;
+}
+
+.notification-field .MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-wb57ya-MuiFormControl-root-MuiTextField-root {
+    width: 97% !important;
+}
+
+.notification-field .MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    width: 97% !important;
+
+}
+
+/* range picker ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+.rs-picker-toggle-textbox {
+    border: 1px solid #912c00 !important;
+}
+
+.rs-picker-default .rs-picker-toggle {
+    border: 1px solid #912c00 !important;
+
+}
+
+.rs-stack-item svg.rs-picker-toggle-caret.rs-icon {
+    color: #912c00;
+}
+
+/* switch button %^%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+.switch-group .btn-success {
+    background-color: #912c00;
+    color: white;
+    border-color: #912c00 !important;
+}
+
+.btn-success {
+    background-color: #912c00 !important;
+    border-color: #912c00 !important;
+}
+
+.btn-success:active:focus {
+
+    background-color: #912c00 !important;
+    border-color: #912c00 !important;
+}
+
+.btn-success:hover {
+    background-color: #912c00;
+    border-color: #912c00;
+}
+
+
+
+/* manage customer&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+.table-data-search-box {
+    top: 118px !important;
+}
+
+/* \dashboard %%%%%%%%%%%%%%%%%%% */
+
+.create-application-btn {
+    background-color: #912c00 !important;
+    color: #ffffff;
+}
+
+.Styled-badge {
+    background-color: #912c00 !important;
+}
+
+.container-fluid.add-location {
+    background-color: #f6f7ff !important;
+}
+
+.makeStyles-linkIconActive-140 {
+    color: #ffffff !important;
+}
+
+/* svg.MuiSvgIcon-root{
+    color: #0e2259 !important;
+} */
+
+.makeStyles-linkActive-258 {
+    background-color: #912c00 !important;
+}
+
+.makeStyles-linkText-79 {
+    color: black !important;
+}
+
+.makeStyles-linkTextActive-80 {
+    color: #fff !important;
+}
+
+.makeStyles-profileMenuIcon-29 {}
+
+.makeStyles-profileMenuIcon-29:hover {
+    color: #ffffff !important;
+}
+
+.makeStyles-headerMenuItem-20:hover,
+.makeStyles-headerMenuItem-20:focus {
+    background-color: #912c00 !important;
+    color: #fff !important;
+}
+
+.makeStyles-profileMenuUser-27:hover,
+.makeStyles-profileMenuUser-27:focus {
+    background-color: #912c00 !important;
+    color: white !important;
+}
+
+p.MuiTypography-root.makeStyles-profileMenuLink-30.MuiTypography-body1 {
+    color: #dadbdb !important;
+    font-weight: 700 !important;
+}
+
+.Export-btn-managelocation {
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #912c00;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+
+}
+
+/* formcontrol Select ^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+.form-select:focus {
+    box-shadow: none;
+}
+
+select.form-select {
+    color: rgb(120 120 120);
+}
+
+.form-select:hover {
+    border: 1px solid black !important;
+}
+
+.MuiList-padding {
+    padding-top: 0 !important;
+}
+
+
+/* all Heading Style &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+.heading-top h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.table-data-search-box-manage input {
+    padding: 5px;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #3e3e3e;
+    font-size: 14px;
+    outline: none;
+    border: 1px solid #912c00;
+}
+
+.table-data-search-box-manage button {
+    height: 30px;
+    background-color: #912c00;
+    border: 1px solid #912c00;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.head-button {
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #912c00;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+}
+
+.head-button a {
+    color: #fff;
+}
+
+.col-md-2 {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.col-md-3 {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.col-md-7 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.application-detail-heading-area h2 {
+    margin: 0 !important;
+}
+
+.container-fluid {
+    background-color: #edf1f5 !important;
+}
+
+/* table */
+.manage-admins-main-area {
+    padding: 0px 0px 30px 0px !important;
+}
+
+body {
+    background-color: #edf1f5 !important;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: -116px;
+}
+
+.css-wjh20t-MuiPagination-ul {
+    justify-content: flex-end;
+}
+
+.application-detail-heading-area {
+    justify-content: center;
+}
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+    color: #912c00 !important;
+}
+
+.makeStyles-search-11 {
+    background-color: rgb(228, 228, 228) !important;
+    color: #912c00;
+}
+
+.makeStyles-search-11:hover {
+    background-color: transparent !important;
+    border: 1px solid #912c00;
+
+}
+
+.css-i4bv87-MuiSvgIcon-root {}
+
+/* khjdhjh */
+
+.makeStyles-linkIconActive-115 {
+    color: #912c00 !important;
+}
+
+.makeStyles-linkIcon-114 {
+    color: #912c00 !important;
+}
+
+.MuiButtonBase-root:hover .MuiListItemIcon-root {
+    color: #fff !important;
+}
+
+.MuiButtonBase-root:hover .MuiListItemText-root span {
+    color: #fff !important;
+}
+
+.page-wrapper {
+    position: inherit !important;
+}
+
+.input:focus {
+    outline: none !important;
+    border: 1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+.ck-editor__editable_inline{
+    min-height: 150px;
+}
