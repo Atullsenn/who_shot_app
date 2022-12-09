@@ -12,6 +12,7 @@ const cors = require('cors');
 const db = require('./db/dbConnection')
 app.use(cors());
 const multer = require('multer');
+const md5Hash = require('crypto-js');
 
 
 
@@ -28,14 +29,21 @@ const getAboutUs = require('./controllers/aboutUs/getAbout');
 const getHunts = require('./controllers/appUsers/getHunts');
 const updateHuntStatus = require('./controllers/appUsers/updateHuntStatus');
 const deleteHunt = require('./controllers/appUsers/deleteHunt');
-
-
+const getAllHunters = require('./controllers/tbl_hunter/getHunters');
+const getHunterDetailsById = require('./controllers/tbl_hunter/getHunterDetailsById');
+const hunterDelete = require('./controllers/tbl_hunter/deleteHunter');
+const sendNotification = require('./controllers/notification/sendNotification');
+const getNotification = require('./controllers/notification/getNotification');
+const updateSettings = require('./controllers/settings/updateSetting');
 
 
 //For Mobile
 const userSignUp = require('./controllers/appUsers/signUp');
 const userLogin = require('./controllers/appUsers/userLogin');
 const createHunt = require('./controllers/appUsers/createHunt');
+const updateAppUser = require('./controllers/appUsers/updateUserDetails');
+const changeUserPassword = require("./controllers/appUsers/changePassword");
+const hunterLogin = require('./controllers/tbl_hunter/huntersLogin');
 
 
 
@@ -70,7 +78,7 @@ const upload = multer({storage: storage,fileFilter:imageFilter,limits:{fileSize:
 
 
 
-//Routes
+//Routes For Web
 app.post('/privacy',addPrivacy);
 app.get('/getPrivacy',GetPrivacy);
 app.post('/termsConditions',termsConditions);
@@ -82,12 +90,21 @@ app.get('/getAboutUs', getAboutUs);
 app.get("/getHunts",getHunts);
 app.post("/updateHuntStatus",updateHuntStatus);
 app.post('/deleteHunt', deleteHunt);
+app.get('/getAllHunters', getAllHunters);
+app.post('/getHunterDetailsById', getHunterDetailsById);
+app.post('/hunterDelete',hunterDelete);
+app.post('/sendNotification', sendNotification);
+app.get('/getNotification',getNotification);
+app.post('/updateAdmin', updateSettings);
 
 
 //Routes For Mobile App
 app.post('/userSignUp', userSignUp);
 app.post('/userLogin',userLogin);
 app.post('/createHunt', createHunt);
+app.post('/updateAppUser',upload.single('profile'),updateAppUser);
+app.post('/resetPassword', changeUserPassword);
+app.post('/hunterLogin', hunterLogin);
 
 
 app.post("/loginAdmin", (req, res) => {
@@ -105,18 +122,15 @@ app.post("/loginAdmin", (req, res) => {
         msg: "password is empty!",
       });
     }
-    // var encryptPassowrd = md5Hash.MD5(req.body.password);
-    //`SELECT * FROM tbl_users WHERE email = ${sql.escape(req.body.login)} AND password=${(encryptPassowrd)}`
+    var encryptPassowrd = md5Hash.MD5(req.body.password);
     db.query(
-      'SELECT * FROM tbl_users WHERE password="'+ req.body.password+'" AND email ="'+req.body.email+'"',
+      'SELECT * FROM tbl_users WHERE password="'+encryptPassowrd+'" AND email ="'+req.body.email+'"',
       (err, result) => {
-       // console.log(result);
-        // user does not exists
         if (err) {
-          throw err; 
-          return res.status(400).send({
-            msg: err,
-          });
+          res.status(500).send({
+            success: false,
+            message: err
+          })
         }
         if (!result.length) {
           return res.status(401).send({
@@ -137,6 +151,9 @@ app.post("/loginAdmin", (req, res) => {
     );
   });
 
+
+
+
 app.listen(port,()=>{
-    console.log(`server is listening to the port on ${port}`)
+  console.log(`server is listening to the port on ${port}`)
 });

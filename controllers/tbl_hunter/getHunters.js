@@ -1,24 +1,23 @@
 const db = require('../../db/dbConnection');
 
 
-const getNotification = (req,res)=>{
-    db.query('SELECT a.*, b.hunt_name As huntname FROM tbl_notifications a INNER JOIN tbl_hunt b ON a.hunt_id = b.id',(err,data)=>{
+const getAllHunters = (req,res)=>{
+    db.query('SELECT a.* FROM tbl_app_users a INNER JOIN tbl_hunters b ON a.id = b.hunter_id',(err,data)=>{
         if(err){
             res.status(500).send({
                 success: false,
                 message: err
             })
         }
-
         else{
             res.status(200).send({
                 success: true,
-                message: 'Data Collecting Successfully',
-                data: data
+                message: 'Data Collected Successfully',
+                hunters: data
             })
         }
     })
 }
 
 
-module.exports = getNotification;
+module.exports = getAllHunters;

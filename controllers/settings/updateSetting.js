@@ -7,7 +7,6 @@ const sql = require("../../db/dbConnection");
 
     }
     else{
-      const filePath = request.protocol + "://" + host + ':' + port + '/image/' + request.file.filename;
       var sqls = 'UPDATE  tbl_users SET name ="'+request.body.name+'", phone = "'+request.body.phone+'", address = "'+request.body.address+'", gender = "'+request.body.gender+'", postal = "'+request.body.postal+'", profile_image="'+request.file.filename+'" WHERE id = "'+request.body.id+'"'
     }
     

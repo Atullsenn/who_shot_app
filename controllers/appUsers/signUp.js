@@ -1,11 +1,10 @@
 const db  = require('../../db/dbConnection');
-var bcrypt = require('bcryptjs');
-const saltRounds = 10;
+const md5Hash = require('crypto-js');
 
 
 const signUp = (req,res)=>{
     var password = req.body.password;
-    var hash = bcrypt.hashSync(password, saltRounds);
+    var hash = md5Hash.MD5(password)
      
     if(req.body.fullname == '' && req.body.fullname == null){
         return res.status(400).send({
@@ -47,7 +46,7 @@ const signUp = (req,res)=>{
         else{
 
             db.query(`INSERT INTO tbl_app_users  (full_name,phone, email, password)
-    VALUES ('${req.body.full_name}','${req.body.phone}', '${req.body.email}', '${req.body.password}');`,(err,data)=>{
+    VALUES ('${req.body.full_name}','${req.body.phone}', '${req.body.email}', '${hash}');`,(err,data)=>{
       if (err) {
         res.status(500).send({
             success: false,
