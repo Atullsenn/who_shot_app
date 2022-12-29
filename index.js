@@ -35,6 +35,7 @@ const hunterDelete = require('./controllers/tbl_hunter/deleteHunter');
 const sendNotification = require('./controllers/notification/sendNotification');
 const getNotification = require('./controllers/notification/getNotification');
 const updateSettings = require('./controllers/settings/updateSetting');
+const getUserById = require('./controllers/settings/getUserById');
 
 
 //For Mobile
@@ -44,36 +45,60 @@ const createHunt = require('./controllers/appUsers/createHunt');
 const updateAppUser = require('./controllers/appUsers/updateUserDetails');
 const changeUserPassword = require("./controllers/appUsers/changePassword");
 const hunterLogin = require('./controllers/tbl_hunter/huntersLogin');
+const getLiveHunts = require('./controllers/appUsers/getLiveHunts');
+const getHuntById = require('./controllers/appUsers/getHuntsByid');
+const getHuntDetailsById = require('./controllers/appUsers/huntDetailsById');
+const cancelHunt = require('./controllers/appUsers/cancelHunt');
+const updateHunt = require('./controllers/appUsers/updateHunt');
+
 
 
 
 //upload Image Function
+// const storage = multer.diskStorage({
+//   destination:(req,file,cb)=>{
+//     cb(null,"./public/image")
+//   },
+//   filename:(req,file,cb)=>{
+//     cb(null,new Date().getTime() + path.extname(file.originalname));
+//   }
+// })
+
+
+// const imageFilter = function (req, file, cb) {
+// if (
+//   file.mimetype == "image/png" ||
+//   file.mimetype == "image/jpg" ||
+//   file.mimetype == "image/jpeg"
+ 
+// ) {
+//   cb(null, true);
+// } else {
+//   cb(null, false);
+//   return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
+// }
+// };
+
+// const upload = multer({storage: storage,fileFilter:imageFilter,limits:{fileSize:1024*1024*10}},)
+
 const storage = multer.diskStorage({
-  destination:(req,file,cb)=>{
-    cb(null,"./public/image")
+  destination: function (req, file, cb) {
+      cb(null, "././public/image");
   },
-  filename:(req,file,cb)=>{
-    cb(null,new Date().getTime() + path.extname(file.originalname));
+  filename: function (req, file, cb) {
+      cb(null, Date.now() + file.originalname)
+
   }
 })
-
-
-const imageFilter = function (req, file, cb) {
-if (
-  file.mimetype == "image/png" ||
-  file.mimetype == "image/jpg" ||
-  file.mimetype == "image/jpeg"
- 
-) {
-  cb(null, true);
-} else {
-  cb(null, false);
-  return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
+const filefilter = (req, file, cb) => {
+  if (file.mimetype == "image/jpeg" || file.mimetype == "image/png") {
+      cb(null, true)
+  } else {
+      cb(null, false)
+  }
 }
-};
 
-const upload = multer({storage: storage,fileFilter:imageFilter,limits:{fileSize:1024*1024*10}},)
-
+const upload = multer({ storage: storage, limits: { fileSize: 1024 * 1024 * 5 }, fileFilter: filefilter });
 
 
 
@@ -95,16 +120,23 @@ app.post('/getHunterDetailsById', getHunterDetailsById);
 app.post('/hunterDelete',hunterDelete);
 app.post('/sendNotification', sendNotification);
 app.get('/getNotification',getNotification);
-app.post('/updateAdmin', updateSettings);
+app.post('/updateAdmin', upload.single('profile_image'), updateSettings);
+app.post('/getAdminById',getUserById);
 
 
 //Routes For Mobile App
 app.post('/userSignUp', userSignUp);
 app.post('/userLogin',userLogin);
-app.post('/createHunt', createHunt);
+app.post('/createHunt', upload.single('hunt_image'), createHunt);
 app.post('/updateAppUser',upload.single('profile'),updateAppUser);
 app.post('/resetPassword', changeUserPassword);
 app.post('/hunterLogin', hunterLogin);
+app.get('/getLiveHunts',getLiveHunts);
+app.get('/getHuntById', getHuntById);
+app.post('/huntDetailsById', getHuntDetailsById);
+app.post('/cancelHunt', cancelHunt);
+app.post('/updateHunt', upload.single('hunt_image'), updateHunt);
+
 
 
 app.post("/loginAdmin", (req, res) => {

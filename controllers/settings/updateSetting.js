@@ -20,6 +20,7 @@ const sql = require("../../db/dbConnection");
         })
         return;
       }
+      
         res.status(200).send({
             success: true,
             message: 'Data Updated Successfully',

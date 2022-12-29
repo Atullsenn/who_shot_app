@@ -15,7 +15,7 @@ const huntersLogin = (req,res)=>{
         })
         return;
     }
-    db.query('SELECT user_id, hunt_name,passcode FROM tbl_hunt WHERE hunt_name = "'+req.body.hunt_name+'" AND passcode = "'+req.body.passcode+'"',(err,data)=>{
+    db.query('SELECT id,user_id, hunt_name,passcode FROM tbl_hunt WHERE hunt_name = "'+req.body.hunt_name+'" AND passcode = "'+req.body.passcode+'"',(err,data)=>{
         if(err){
             res.status(500).send({
                 success: false,
@@ -31,8 +31,10 @@ const huntersLogin = (req,res)=>{
             return;
 
         }
+
+
         else{
-            db.query(`INSERT INTO tbl_hunters(hunt_id,hunter_id) VALUES('${data[0].user_id}', '${req.body.hunter_id}')`,(err,data)=>{
+            db.query(`INSERT INTO tbl_hunters(hunt_id,hunter_id,admin_id) VALUES('${data[0].id}', '${req.body.hunter_id}', '${data[0].user_id}')`,(err,data)=>{
                 if(err){
                     res.status(500).send({
                         success: false,
