@@ -1,5 +1,8 @@
 const express= require("express");
+const http = require('http')
 const port= 8000;
+const hostname = '0.0.0.0'
+const path = require("path");
 const app= express();
 const bodyParser= require("body-parser")
 app.use(express.json());
@@ -11,6 +14,7 @@ app.use( bodyParser.json() );
 const cors = require('cors');
 const db = require('./db/dbConnection')
 app.use(cors());
+app.use(express.static('public'))
 const multer = require('multer');
 const md5Hash = require('crypto-js');
 
@@ -50,56 +54,43 @@ const getHuntById = require('./controllers/appUsers/getHuntsByid');
 const getHuntDetailsById = require('./controllers/appUsers/huntDetailsById');
 const cancelHunt = require('./controllers/appUsers/cancelHunt');
 const updateHunt = require('./controllers/appUsers/updateHunt');
+const pastHuntResults = require('./controllers/appUsers/pastHuntResults');
+const getUserProfile = require('./controllers/appUsers/getUserProfile');
+const exitHunt = require('./controllers/appUsers/exitHunt');
+const getNotificationByHuntId = require('./controllers/notification/getNotificationByHuntId');
+const exitHunterByAdmin = require('./controllers/appUsers/exitHunterByAdmin');
+const startHunt = require('./controllers/tbl_hunt/startHunt');
+const checkHuntStatus = require('./controllers/tbl_hunt/checkHuntStatus');
 
 
 
 
 //upload Image Function
-// const storage = multer.diskStorage({
-//   destination:(req,file,cb)=>{
-//     cb(null,"./public/image")
-//   },
-//   filename:(req,file,cb)=>{
-//     cb(null,new Date().getTime() + path.extname(file.originalname));
-//   }
-// })
-
-
-// const imageFilter = function (req, file, cb) {
-// if (
-//   file.mimetype == "image/png" ||
-//   file.mimetype == "image/jpg" ||
-//   file.mimetype == "image/jpeg"
- 
-// ) {
-//   cb(null, true);
-// } else {
-//   cb(null, false);
-//   return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
-// }
-// };
-
-// const upload = multer({storage: storage,fileFilter:imageFilter,limits:{fileSize:1024*1024*10}},)
-
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-      cb(null, "././public/image");
+  destination:(req,file,cb)=>{
+    cb(null,"./public/image")
   },
-  filename: function (req, file, cb) {
-      cb(null, Date.now() + file.originalname)
-
+  filename:(req,file,cb)=>{
+    cb(null,new Date().getTime() + path.extname(file.originalname));
   }
 })
-const filefilter = (req, file, cb) => {
-  if (file.mimetype == "image/jpeg" || file.mimetype == "image/png") {
-      cb(null, true)
-  } else {
-      cb(null, false)
-  }
+
+
+const imageFilter = function (req, file, cb) {
+if (
+  file.mimetype == "image/png" ||
+  file.mimetype == "image/jpg" ||
+  file.mimetype == "image/jpeg"
+ 
+) {
+  cb(null, true);
+} else {
+  cb(null, false);
+  return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
 }
+};
 
-const upload = multer({ storage: storage, limits: { fileSize: 1024 * 1024 * 5 }, fileFilter: filefilter });
-
+const upload = multer({storage: storage,limits:{fileSize:1024*1024*10}},)
 
 
 
@@ -128,15 +119,21 @@ app.post('/getAdminById',getUserById);
 app.post('/userSignUp', userSignUp);
 app.post('/userLogin',userLogin);
 app.post('/createHunt', upload.single('hunt_image'), createHunt);
-app.post('/updateAppUser',upload.single('profile'),updateAppUser);
+app.post('/updateProfile', upload.single('profile'),updateAppUser);
 app.post('/resetPassword', changeUserPassword);
-app.post('/hunterLogin', hunterLogin);
+app.post('/joinHunt', hunterLogin);
 app.get('/getLiveHunts',getLiveHunts);
-app.get('/getHuntById', getHuntById);
+app.post('/getHuntById', getHuntById);
 app.post('/huntDetailsById', getHuntDetailsById);
 app.post('/cancelHunt', cancelHunt);
 app.post('/updateHunt', upload.single('hunt_image'), updateHunt);
-
+app.post('/getPastHunt', pastHuntResults);
+app.post('/getUserProfile', getUserProfile);
+app.post('/exitHunt', exitHunt);
+app.post('/getNotificationByHuntId', getNotificationByHuntId);
+app.post('/exitHunterByAdmin', exitHunterByAdmin);
+app.post('/startHunt', startHunt);
+app.post('/checkHuntStatus',checkHuntStatus);
 
 
 app.post("/loginAdmin", (req, res) => {
@@ -182,6 +179,17 @@ app.post("/loginAdmin", (req, res) => {
       }
     );
   });
+
+  // const server = http.createServer((req,res)=>{
+  //   res.status = 200
+  //   res.setHeader('content-Type', 'text/plain')
+  //   res.end('atull node js project')
+  // })
+
+
+  // server.listen(port,hostname,()=>{
+  //   console.log(`server is listening to the port on ${port}`)
+  // });
 
 
 

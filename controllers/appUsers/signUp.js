@@ -6,15 +6,15 @@ const signUp = (req,res)=>{
     var password = req.body.password;
     var hash = md5Hash.MD5(password)
      
-    if(req.body.fullname == '' && req.body.fullname == null){
+   if(req.body.full_name == '' || req.body.full_name == null){
         return res.status(400).send({
             success: false,
-            message: 'Please provide first_name'
+            message: 'please provide first_name'
 
         })
     }
     
-    if(!req.body.email == '' && req.body.email == null){
+    if(req.body.email == '' || req.body.email == null){
         return res.status(400).send({
             success: false,
             message: 'Please provide email'
@@ -22,10 +22,18 @@ const signUp = (req,res)=>{
         })
     }
    
-    if(!req.body.password == '' && req.body.password == null){
+    if(req.body.password == '' || req.body.password == null){
         return res.status(400).send({
             success: false,
             message: 'Please Enter Your Password'
+
+        })
+    }
+
+    if(req.body.phone == '' || req.body.phone == null){
+        return res.status(400).send({
+            success: false,
+            message: 'Please Enter Your Phone'
 
         })
     }

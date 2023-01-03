@@ -10,7 +10,6 @@ const sendNotification = (req,res)=>{
         return;
     }
 
-
     if(req.body.description == '' || req.body.description == null){
         res.status(400).send({
             success: false,
