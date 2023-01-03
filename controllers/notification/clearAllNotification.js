@@ -1,7 +1,7 @@
 const db = require('../../db/dbConnection');
 
-const removeHunterByAdmin = (req,res)=>{
-    db.query('UPDATE tbl_hunters SET hunter_remove_status = 1 WHERE id = "'+req.body.id+'"',(err,data)=>{
+const clearAllNotification = (req,res)=>{
+    db.query('',(err,data)=>{
         if(err){
             res.status(500).send({
                 success: false,
@@ -10,14 +10,16 @@ const removeHunterByAdmin = (req,res)=>{
             return;
         }
 
+
         else{
             res.status(200).send({
                 success: true,
-                message: 'Hunter Remove Successfully'
+                message: 'Clear All Messages Successfully'
             })
             return;
         }
     })
 }
 
-module.exports = removeHunterByAdmin;
+
+module.exports = clearAllNotification;

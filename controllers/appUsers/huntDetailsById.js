@@ -3,10 +3,11 @@ const db = require('../../db/dbConnection')
 const getHunter = (hunter_id)=>{
 
     const hunterData = []
-    db.query('SELECT a.hunter_id, b.full_name, b.profile FROM tbl_hunters a INNER JOIN tbl_app_users b ON a.hunter_id = b.id WHERE hunt_id = "'+hunter_id+'" AND b.hunter_remove_status = 0',(err,data)=>{
+    db.query('SELECT a.hunter_id, b.full_name, b.profile FROM tbl_hunters a INNER JOIN tbl_app_users b ON a.hunter_id = b.id WHERE hunt_id = "'+hunter_id+'" AND a.hunter_remove_status = 0',(err,data)=>{
         if(err){
             console.log("err")
         }
+
         data.forEach(e => {
             const arr = {}
             arr['hunter_id'] = e.hunter_id,
@@ -24,7 +25,7 @@ const getHunter = (hunter_id)=>{
 const getHuntDetailsById = (req,res)=>{
 
     const dataa = []
-    db.query('SELECT a.id,a.hunt_name, a.passcode, a.hunt_image, a.start_date, a.start_time, a.end_date, a.end_time, b.full_name FROM tbl_hunt a INNER JOIN tbl_app_users b ON a.user_id = b.id WHERE a.id = "'+req.body.id+'"',(err,data)=>{
+    db.query('SELECT a.id,a.group_id,a.hunt_name, a.passcode, a.hunt_image, a.start_date, a.start_time, a.end_date, a.end_time, b.full_name FROM tbl_hunt a INNER JOIN tbl_app_users b ON a.user_id = b.id WHERE a.id = "'+req.body.id+'"',(err,data)=>{
         if(err){
             res.status(500).send({
                 success: false,
@@ -44,6 +45,7 @@ const getHuntDetailsById = (req,res)=>{
                 dataArr['huntStartTime'] = e.start_time;
                 dataArr['hunter_id'] = e.hunter_id;
                 dataArr['hunt_id'] = e.id;
+                dataArr['group_id'] = e.group_id;
                 dataArr['hunters'] = getHunter(e.id);
                 dataa.push(dataArr)
             });

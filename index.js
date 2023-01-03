@@ -61,6 +61,8 @@ const getNotificationByHuntId = require('./controllers/notification/getNotificat
 const exitHunterByAdmin = require('./controllers/appUsers/exitHunterByAdmin');
 const startHunt = require('./controllers/tbl_hunt/startHunt');
 const checkHuntStatus = require('./controllers/tbl_hunt/checkHuntStatus');
+const forgetPassword = require('./controllers/appUsers/forgetPassword');
+const checkPhoneNumber = require('./controllers/appUsers/checkPhone');
 
 
 
@@ -134,6 +136,8 @@ app.post('/getNotificationByHuntId', getNotificationByHuntId);
 app.post('/exitHunterByAdmin', exitHunterByAdmin);
 app.post('/startHunt', startHunt);
 app.post('/checkHuntStatus',checkHuntStatus);
+app.post('/forgetPassword', forgetPassword);
+app.post('/checkPhoneNumber', checkPhoneNumber);
 
 
 app.post("/loginAdmin", (req, res) => {
