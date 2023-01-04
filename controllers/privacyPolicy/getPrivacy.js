@@ -16,7 +16,7 @@ const GetPrivacy = (req,res)=>{
          res.status(200).send({
             success: true,
             message:'Success',
-            data:rows
+            data:rows[0]
          })
           return;
         

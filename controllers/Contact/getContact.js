@@ -13,7 +13,7 @@ const getContact = (req,res)=>{
             res.status(200).send({
                 success: true,
                 message: 'Success',
-                data: data
+                data: data[0]
             })
         }
     })

@@ -3,7 +3,6 @@ const CryptoJS = require("crypto-js");
 
 const changeUserPassword = (req,res) => {
     var password = req.body.password
-    var id = req.body.id 
     var newpassword = req.body.newpassword
     const HashNewPassword = CryptoJS.MD5(newpassword)
     var encryptPassowrd = CryptoJS.MD5(password);
@@ -40,10 +39,6 @@ const changeUserPassword = (req,res) => {
       } 
      
    })
-   
-   
-     
-   
    
     
    }

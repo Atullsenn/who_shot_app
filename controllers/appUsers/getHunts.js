@@ -1,6 +1,31 @@
 const db = require('../../db/dbConnection')
 
+
+
 const getHunts = (req,res)=>{
+    const resultData = []
+
+//Function For Total Participants
+
+const totalParticipants = (hunt_id,callback)=>{
+    db.query('SELECT COUNT(hunter_id) AS total FROM tbl_hunters WHERE hunt_id = "'+hunt_id+'"',(err,data)=>{
+        if(err){
+            res.status(500).send({
+                success: false,
+                message: err
+            })
+            return;
+        }
+
+        else{
+            return callback(data) 
+        }
+
+    })
+}
+
+//Function For Total Participants
+
     db.query('SELECT * FROM tbl_hunt',(err,data)=>{
         if(err){
             res.status(500).send({
@@ -9,11 +34,27 @@ const getHunts = (req,res)=>{
             })
         }
         else{
-            res.status(200).send({
-                success: true,
-                message:'Data Collected Successfully',
-                Hunts: data
+            data.forEach(e=>{
+                var arrObj = {}
+                arrObj['huntID'] = e.id;
+                arrObj['huntName'] = e.hunt_name;
+                arrObj['createdDate'] = e.date;
+                arrObj['endDate'] = e.end_date;
+                totalParticipants(e.id,function(result){
+                    arrObj["totalParticipants"] = result[0].total;
+                })
+                resultData.push(arrObj)
             })
+
+            setTimeout(()=>{
+                res.status(200).send({
+                    success: true,
+                    message:'Data Collected Successfully',
+                    Hunts: resultData
+                })
+
+            },1000)
+            
         }
     })
 }

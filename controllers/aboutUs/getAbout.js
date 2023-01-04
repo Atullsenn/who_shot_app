@@ -13,7 +13,7 @@ const getAboutUs = (req,res)=>{
             res.status(200).send({
                 success: true,
                 message: 'Getting Data Successfully',
-                data:data
+                data:data[0]
             })
         }
     })

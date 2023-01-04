@@ -6,7 +6,7 @@ const getPastHunt = (req,res)=>{
     //Function For Count Hunt Result
     const countHuntResult = (huntId, callback)=>{
         const dataArr = []
-        db.query('SELECT COUNT(no_of_killed) AS killed, COUNT(no_of_wound) AS wound, COUNT(no_of_missed) AS missed, COUNT(no_of_fire) AS fire FROM tbl_hunters WHERE hunt_id = "'+huntId+'"',(err,data)=>{
+        db.query('SELECT SUM(no_of_killed) AS killed, SUM(no_of_wound) AS wound, SUM(no_of_missed) AS missed, SUM(no_of_fire) AS fire FROM tbl_hunters WHERE hunt_id = "'+huntId+'"',(err,data)=>{
             if(err){
                 res.status(500).send({
                     success: false,
@@ -59,6 +59,7 @@ const getPastHunt = (req,res)=>{
                 })
                 resultData.push(obj)
             })
+           
             
             setTimeout(()=>{
                 res.status(200).send({

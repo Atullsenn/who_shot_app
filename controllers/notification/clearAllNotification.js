@@ -1,7 +1,7 @@
 const db = require('../../db/dbConnection');
 
 const clearAllNotification = (req,res)=>{
-    db.query('',(err,data)=>{
+    db.query('SELECT SUM(no_of_killed) FROM tbl_hunters WHERE hunter_id = "'+req.body.hunter_id+'"',(err,data)=>{
         if(err){
             res.status(500).send({
                 success: false,
@@ -14,7 +14,8 @@ const clearAllNotification = (req,res)=>{
         else{
             res.status(200).send({
                 success: true,
-                message: 'Clear All Messages Successfully'
+                message: 'Success',
+                data: data
             })
             return;
         }

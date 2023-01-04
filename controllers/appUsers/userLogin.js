@@ -19,7 +19,6 @@ if (!req.body.email && req.body.email == null) {
 
 
   var encryptPassowrd = md5Hash.MD5(req.body.password);
-  //`SELECT * FROM tbl_users WHERE email = ${sql.escape(req.body.login)} AND password=${(encryptPassowrd)}`
   db.query(
     'SELECT * FROM tbl_app_users WHERE password="'+encryptPassowrd+'" AND email ="'+req.body.email+'"',
     async(err, results) => {

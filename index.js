@@ -63,6 +63,7 @@ const startHunt = require('./controllers/tbl_hunt/startHunt');
 const checkHuntStatus = require('./controllers/tbl_hunt/checkHuntStatus');
 const forgetPassword = require('./controllers/appUsers/forgetPassword');
 const checkPhoneNumber = require('./controllers/appUsers/checkPhone');
+const clearAllNotification = require('./controllers/notification/clearAllNotification')
 
 
 
@@ -138,6 +139,7 @@ app.post('/startHunt', startHunt);
 app.post('/checkHuntStatus',checkHuntStatus);
 app.post('/forgetPassword', forgetPassword);
 app.post('/checkPhoneNumber', checkPhoneNumber);
+app.post('/clearAllNotification', clearAllNotification);
 
 
 app.post("/loginAdmin", (req, res) => {
@@ -201,3 +203,4 @@ app.post("/loginAdmin", (req, res) => {
 app.listen(port,()=>{
   console.log(`server is listening to the port on ${port}`)
 });
+
