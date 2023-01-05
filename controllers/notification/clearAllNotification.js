@@ -1,7 +1,7 @@
 const db = require('../../db/dbConnection');
 
 const clearAllNotification = (req,res)=>{
-    db.query('SELECT SUM(no_of_killed) FROM tbl_hunters WHERE hunter_id = "'+req.body.hunter_id+'"',(err,data)=>{
+    db.query('SELECT CONCAT(hunt_name," ", passcode) AS fullName, NOW() AS currentDate FROM tbl_hunt WHERE id = "'+req.body.id+'"',(err,data)=>{
         if(err){
             res.status(500).send({
                 success: false,
@@ -9,7 +9,6 @@ const clearAllNotification = (req,res)=>{
             })
             return;
         }
-
 
         else{
             res.status(200).send({

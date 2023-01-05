@@ -40,6 +40,8 @@ const sendNotification = require('./controllers/notification/sendNotification');
 const getNotification = require('./controllers/notification/getNotification');
 const updateSettings = require('./controllers/settings/updateSetting');
 const getUserById = require('./controllers/settings/getUserById');
+const getHuntDetailsByID = require('./controllers/tbl_hunt/getHuntDetailsById');
+const groupDetails = require('./controllers/group/groupDetail');
 
 
 //For Mobile
@@ -116,30 +118,32 @@ app.post('/sendNotification', sendNotification);
 app.get('/getNotification',getNotification);
 app.post('/updateAdmin', upload.single('profile_image'), updateSettings);
 app.post('/getAdminById',getUserById);
+app.post('/getHuntDetailsByID', getHuntDetailsByID);
+app.get('/groupDetails', groupDetails);
 
 
 //Routes For Mobile App
-app.post('/userSignUp', userSignUp);
-app.post('/userLogin',userLogin);
-app.post('/createHunt', upload.single('hunt_image'), createHunt);
-app.post('/updateProfile', upload.single('profile'),updateAppUser);
-app.post('/resetPassword', changeUserPassword);
-app.post('/joinHunt', hunterLogin);
-app.get('/getLiveHunts',getLiveHunts);
-app.post('/getHuntById', getHuntById);
-app.post('/huntDetailsById', getHuntDetailsById);
-app.post('/cancelHunt', cancelHunt);
-app.post('/updateHunt', upload.single('hunt_image'), updateHunt);
-app.post('/getPastHunt', pastHuntResults);
-app.post('/getUserProfile', getUserProfile);
-app.post('/exitHunt', exitHunt);
-app.post('/getNotificationByHuntId', getNotificationByHuntId);
-app.post('/exitHunterByAdmin', exitHunterByAdmin);
-app.post('/startHunt', startHunt);
-app.post('/checkHuntStatus',checkHuntStatus);
-app.post('/forgetPassword', forgetPassword);
-app.post('/checkPhoneNumber', checkPhoneNumber);
-app.post('/clearAllNotification', clearAllNotification);
+app.post('/whoShot/api/userSignUp', userSignUp);
+app.post('/whoShot/api/userLogin',userLogin);
+app.post('/whoShot/api/createHunt', upload.single('hunt_image'), createHunt);
+app.post('/whoShot/api/updateProfile', upload.single('profile'),updateAppUser);
+app.post('/whoShot/api/resetPassword', changeUserPassword);
+app.post('/whoShot/api/joinHunt', hunterLogin);
+app.get('/whoShot/api/getLiveHunts',getLiveHunts);
+app.post('/whoShot/api/getHuntById', getHuntById);
+app.post('/whoShot/api/huntDetailsById', getHuntDetailsById);
+app.post('/whoShot/api/cancelHunt', cancelHunt);
+app.post('/whoShot/api/updateHunt', upload.single('hunt_image'), updateHunt);
+app.post('/whoShot/api/getPastHunt', pastHuntResults);
+app.post('/whoShot/api/getUserProfile', getUserProfile);
+app.post('/whoShot/api/exitHunt', exitHunt);
+app.post('/whoShot/api/getNotificationByHuntId', getNotificationByHuntId);
+app.post('/whoShot/api/exitHunterByAdmin', exitHunterByAdmin);
+app.post('/whoShot/api/startHunt', startHunt);
+app.post('/whoShot/api/checkHuntStatus',checkHuntStatus);
+app.post('/whoShot/api/forgetPassword', forgetPassword);
+app.post('/whoShot/api/checkPhoneNumber', checkPhoneNumber);
+app.post('/whoShot/api/clearAllNotification', clearAllNotification);
 
 
 app.post("/loginAdmin", (req, res) => {
