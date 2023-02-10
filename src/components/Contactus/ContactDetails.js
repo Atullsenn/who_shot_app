@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+// import { URL } from "../../url/url";
 import { URL } from "../../url/url";
 import { toast } from "react-toastify";
 
@@ -14,7 +15,7 @@ const ContactDetails = () => {
 
   const createContactDetails = (e) => {
     let data = { phone, email, address }
-    fetch("http://localhost:8000/web/api/contact", {
+    fetch(URL + '/web/api/contact', {
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -34,7 +35,7 @@ const ContactDetails = () => {
   }, []);
 
   const getData1 = async () => {
-    await axios.get("http://localhost:8000/web/api/getContact").then((res) => {
+    await axios.get(URL + '/web/api/getContact').then((res) => {
       setEmail(res.data.data.email)
       setAddress(res.data.data.address)
       setPhonenumber(res.data.data.phone)

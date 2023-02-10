@@ -73,7 +73,7 @@ const AllNotification = () => {
       notificationDeleteStatus(th);
       return true
     } else {
-      toast.warn("You canceled!");
+      toast.warn("You cancelled!");
       return false
     }
   };
@@ -213,45 +213,6 @@ const AllNotification = () => {
                             </tr>
                           );
                         })}
-                      {/* {
-                      data.filter(
-                        (row) =>
-                          !search.length ||
-                          row.parking_id
-                            .toString()
-                            .toLowerCase()
-                            .includes(search.toString().toLowerCase()),
-                      )
-                        .slice(pagesVisited, pagesVisited + usersPerPage).map((item, i) => (
-                          <tr>
-                            <td>{i + pagesVisited + 1}</td>
-                            <td>
-                              {item.user_id === 0 ? 'All' : item.first_name}
-                              {item.customerName === 'All' ? item.customerName : item.customerName[0].first_name + ' ' + item.customerName[0].last_name}
-                            </td>
-                            <td>{item.title.substr(0, 25) + ".."}</td>
-                            <td>{item.description.substr(0, 20) + ".."}</td>
-                            <td>
-                              {moment(item.date).format('YYYY-MM-DD : HH:MM')}
-                            </td>
-                            <td>
-                              <Link
-                                to={`/app/notificationDetails/${item.id}`}
-                                className="mange-admins-edit-btn"
-                              >
-                                <i class="fas fa-eye"></i>
-                              </Link>
-                              <Link
-                                to={`/app/notifications`}
-                                datalist={item.id}
-                                onClick={(e) => handleremove(e, item.id)}
-                                className="mange-admins-dlt-btn"
-                              >
-                                <i class="far fa-trash-alt"></i>
-                              </Link>
-                            </td>
-                          </tr>
-                        ))} */}
                     </tbody>
                   </table>
                   <div style={{ display: data.length > 5 ? "block" : "none" }}>
@@ -275,8 +236,8 @@ const AllNotification = () => {
       </div>
       <footer className="footer text-center">
         {" "}
-        2022 © Admin Panel brought to you by
-        <a href="https://https://www.webnmobappssolutions.com">
+        2023 © Admin Panel brought to you by <i></i>
+        <a href="https://www.webnmobappssolutions.com">
           webnmobappssolutions.com
         </a>
       </footer>

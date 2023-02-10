@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DeleteForever from "@material-ui/icons/DeleteForever";
 import { Link } from "react-router-dom";
-import BootstrapDialog from "../BootstrapDialog/BootstrapDialog";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import "reactjs-popup/dist/index.css";
 import ReactPaginate from "react-paginate";
@@ -9,12 +8,15 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { URL } from "../../url/url";
 import InfoIcon from '@mui/icons-material/Info';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import EditIcon from '@mui/icons-material/Edit';
 import moment from 'moment';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+
+toast.configure()
 
 const ManageHunts = ({ label }) => {
   const [dataName, setDataName] = useState([]);
@@ -102,9 +104,10 @@ const ManageHunts = ({ label }) => {
       huntDelete(th);
       return true
     } else {
-      toast.warn("You canceled!");
+      toast.warn("You cancelled!");
       return false
     }
+    
   };
   //notification Delete
 
@@ -265,7 +268,7 @@ const ManageHunts = ({ label }) => {
                       <td>{Item.huntName}</td>
                       <td>{Item.totalParticipants}</td>
                       <td>{moment(Item.createdDate).format("L")}</td>
-                      <td>{Item.endDate || "Null"}</td>
+                      <td>{Item.endDate || "-----"}</td>
                       <td>
                         <Link
                           to={`/app/manage-hunts`}
@@ -371,7 +374,7 @@ const ManageHunts = ({ label }) => {
         </div>
       </div>
       <footer className="footer text-center">
-        2023 ©Admin Panel brought to you by
+        2023 ©Admin Panel brought to you by <i> </i>
         <a href="https://www.webnmobappssolutions.com">
           webnmobappssolutions.com
         </a>

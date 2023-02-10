@@ -232,7 +232,7 @@ const HuntDetail = () => {
                 <th scope="col">No of Missed</th>
                 <th scope="col">No of Wound</th>
                 <th scope="col">NO of Fire</th>
-                <th scope="col">Action</th>
+                {/* <th scope="col">Action</th> */}
               </tr>
             </thead>
             <tbody>
@@ -269,15 +269,15 @@ const HuntDetail = () => {
                     <td>{Item.noOfMissed}</td>
                     <td>{Item.noOfWound}</td>
                     <td>{Item.noOfFire}</td>
-                    <td>
+                    {/* <td>
                       <DeleteForever style={{ color: "#912c00" }} />
-                    </td>
+                    </td> */}
                   </tr>
                   //)
                 ))}
             </tbody>
           </table>
-          <div>
+          <div style={{ display: details.length > 5 ? "block" : "none" }}>
             <ReactPaginate
               reviousLabel={"Previous"}
               nextLabel={"Next"}

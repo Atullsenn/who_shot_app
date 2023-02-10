@@ -39,7 +39,7 @@ const CreatePrivacypolicy = () => {
 
   const getData1 = async () => {
     await axios
-      .get("http://localhost:8000/web/api/getPrivacy")
+      .get(URL + '/web/api/getPrivacy')
       .then((res) => {
         setHeading(res.data.data.heading);
         setDescription(res.data.data.description);
@@ -138,8 +138,8 @@ const CreatePrivacypolicy = () => {
           </div>
         </div>
         <footer className="footer text-center">
-          2022 © Admin Panel brought to you by
-          <a href="https://https://www.webnmobappssolutions.com">
+          2022 © Admin Panel brought to you by <i></i>
+          <a href="https://www.webnmobappssolutions.com">
             webnmobappssolutions.com
           </a>
         </footer>

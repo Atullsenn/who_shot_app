@@ -557,7 +557,7 @@ const Settings = () => {
             </div>
           </div>
         </div>
-        <footer className="footer text-center"> 2022 © Admin Panel brought to you by <a
+        <footer className="footer text-center"> 2023 © Admin Panel brought to you by<i></i> <a
           href="https://www.webnmobappssolutions.com">webnmobappssolutions.com</a>
         </footer>
       </div>

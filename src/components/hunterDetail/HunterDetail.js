@@ -189,7 +189,7 @@ const HunterDetail = () => {
                                 <th scope="col">No of Missed</th>
                                 <th scope="col">No of Wound</th>
                                 <th scope="col">NO of Fire</th>
-                                <th scope="col">Action</th>
+                                {/* <th scope="col">Action</th> */}
                             </tr>
                         </thead>
                         {details.length === 0 ? 
@@ -231,7 +231,7 @@ const HunterDetail = () => {
                                         <td>{Item.missed}</td>
                                         <td>{Item.wound}</td>
                                         <td>{Item.fire}</td>
-                                        <td><DeleteForever style={{ color: "#912c00" }} /></td>
+                                        {/* <td><DeleteForever style={{ color: "#912c00" }} /></td> */}
                                     </tr>
                                 )
                             })}

@@ -1,6 +1,162 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { URL } from "../../url/url";
+import axios from "axios";
 
 const Dashboard = () => {
+const [totalHunters, setTotalHunters] = useState([]);
+const [totalHunts, setTotalHunts] = useState([]);
+const [liveHunts, setLiveHunts] = useState([]);
+const [inactiveHunters, setInactiveHunters] = useState([]);
+const [activeUser, setActiveUser] = useState([]);
+const [topHunts, setTopHunts] = useState([]);
+const [topHunter, setTopHunter] = useState([]);
+    //totalHunter api
+    const totalHunter = ()=>{
+        axios.post( URL + '/web/api/totalHunters',{
+            Accept: "Application",
+            "Content-Type": "application/json"
+        }).then(res=>{
+            setTotalHunters(res.data.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    useEffect(()=>{
+        totalHunter()
+    },[])
+
+
+    //totalHunter api
+
+
+    //totalHunts api
+
+    const totalHunt = ()=>{
+        axios.post( URL + '/web/api/totalHunts',{
+            Accept: "Application",
+            "Content-Type": "application/json"
+        }).then(res=>{
+            setTotalHunts(res.data.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    useEffect(()=>{
+        totalHunt()
+    },[])
+
+    //totalHunt api
+
+
+    //live Hunts api
+
+    const liveHunt = ()=>{
+        axios.post( URL + '/web/api/liveHunts',{
+            Accept: "Application",
+            "Content-Type": "application/json"
+        }).then(res=>{
+            setLiveHunts(res.data.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    useEffect(()=>{
+        liveHunt()
+    },[])
+
+
+
+    //live Hunts api
+
+
+    //inactive Hunters api
+
+    const inactiveHunter = ()=>{
+        axios.post( URL + '/web/api/inactiveHunters',{
+            Accept: "Application",
+            "Content-Type": "application/json"
+        }).then(res=>{
+            setInactiveHunters(res.data.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    useEffect(()=>{
+        inactiveHunter()
+    },[])
+
+
+
+    //inactive Hunters api
+
+
+     //active users api
+
+     const activeUsers = ()=>{
+        axios.post( URL + '/web/api/acitveUsers',{
+            Accept: "Application",
+            "Content-Type": "application/json"
+        }).then(res=>{
+            setActiveUser(res.data.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    useEffect(()=>{
+        activeUsers()
+    },[])
+
+    //active users api
+
+     //top hunt api
+
+     const topHunt = ()=>{
+        axios.post( URL + '/web/api/topHunt',{
+            Accept: "Application",
+            "Content-Type": "application/json"
+        }).then(res=>{
+            setTopHunts(res.data.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    useEffect(()=>{
+        topHunt()
+    },[])
+
+    //active hunt api
+
+     //top hunter api
+
+     const topHunters = ()=>{
+        axios.post( URL + '/web/api/topHunter',{
+            Accept: "Application",
+            "Content-Type": "application/json"
+        }).then(res=>{
+            setTopHunter(res.data.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    useEffect(()=>{
+        topHunters()
+    },[])
+
+    //active hunter api
     return (
         <>
             <div className="page-wrapper">
@@ -44,6 +200,7 @@ const Dashboard = () => {
                 <div className="container-fluid">
                     <div className="row justify-content-center">
                         <div className="col-lg-4 col-md-12">
+                        <a href="#/app/all-hunters">
                             <div className="white-box analytics-info">
                                 <h3 className="box-title">Total Hunters</h3>
                                 <ul className="list-inline two-part d-flex align-items-center mb-0">
@@ -52,11 +209,13 @@ const Dashboard = () => {
                                             style={{ display: "inline-block", width: '67px', height: "30px", verticalAlign: 'top' }}></canvas>
                                         </div>
                                     </li>
-                                    <li className="ms-auto"><span className="counter text-success">659</span></li>
+                                    <li className="ms-auto"><span className="counter text-success">{totalHunters.totalHunters}</span></li>
                                 </ul>
                             </div>
+                            </a>
                         </div>
                         <div className="col-lg-4 col-md-12">
+                            <a href="#/app/manage-hunts">
                             <div className="white-box analytics-info">
                                 <h3 className="box-title">Total Hunts</h3>
                                 <ul className="list-inline two-part d-flex align-items-center mb-0">
@@ -65,9 +224,10 @@ const Dashboard = () => {
                                             style={{ display: "inline-block", width: '67px', height: "30px", verticalAlign: 'top' }}></canvas>
                                         </div>
                                     </li>
-                                    <li className="ms-auto"><span className="counter text-purple">869</span></li>
+                                    <li className="ms-auto"><span className="counter text-purple">{totalHunts.totalHunt}</span></li>
                                 </ul>
                             </div>
+                            </a>
                         </div>
                         <div className="col-lg-4 col-md-12">
                             <div className="white-box analytics-info">
@@ -78,13 +238,14 @@ const Dashboard = () => {
                                             style={{ display: "inline-block", width: '67px', height: "30px", verticalAlign: 'top' }}></canvas>
                                         </div>
                                     </li>
-                                    <li className="ms-auto"><span className="counter text-info">911</span></li>
+                                    <li className="ms-auto"><span className="counter text-info">{activeUser.ActiveUsers}</span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-3 col-md-12">
+                            <a href="#/app/all-hunters">
                             <div className="white-box analytics-info">
                                 <h3 className="box-title">Inactive Hunters</h3>
                                 <ul className="list-inline two-part d-flex align-items-center mb-0">
@@ -93,11 +254,13 @@ const Dashboard = () => {
                                             style={{ display: "inline-block", width: '67px', height: "30px", verticalAlign: 'top' }}></canvas>
                                         </div>
                                     </li>
-                                    <li className="ms-auto"><span className="counter text-success">659</span></li>
+                                    <li className="ms-auto"><span className="counter text-success">{inactiveHunters.InactiveHunters}</span></li>
                                 </ul>
                             </div>
+                            </a>
                         </div>
                         <div className="col-lg-3 col-md-12">
+                            <a href="#/app/manage-hunts">
                             <div className="white-box analytics-info">
                                 <h3 className="box-title">Live Hunt</h3>
                                 <ul className="list-inline two-part d-flex align-items-center mb-0">
@@ -106,11 +269,13 @@ const Dashboard = () => {
                                             style={{ display: "inline-block", width: '67px', height: "30px", verticalAlign: 'top' }}></canvas>
                                         </div>
                                     </li>
-                                    <li className="ms-auto"><span className="counter text-success">659</span></li>
+                                    <li className="ms-auto"><span className="counter text-success">{liveHunts.liveHunts}</span></li>
                                 </ul>
                             </div>
+                            </a>
                         </div>
                         <div className="col-lg-3 col-md-12">
+                            <a href="#/app/all-hunters">
                             <div className="white-box analytics-info">
                                 <h3 className="box-title">Top Hunter</h3>
                                 <ul className="list-inline two-part d-flex align-items-center mb-0">
@@ -119,11 +284,13 @@ const Dashboard = () => {
                                             style={{ display: "inline-block", width: '67px', height: "30px", verticalAlign: 'top' }}></canvas>
                                         </div>
                                     </li>
-                                    <li className="ms-auto"><span className="counter text-purple">869</span></li>
+                                    <li className="ms-auto"><span className="counter text-purple">{topHunter.HunterName}</span></li>
                                 </ul>
                             </div>
+                            </a>
                         </div>
                         <div className="col-lg-3 col-md-12">
+                            <a href="#/app/manage-hunts">
                             <div className="white-box analytics-info">
                                 <h3 className="box-title">Top Hunt</h3>
                                 <ul className="list-inline two-part d-flex align-items-center mb-0">
@@ -132,9 +299,10 @@ const Dashboard = () => {
                                             style={{ display: "inline-block", width: '67px', height: "30px", verticalAlign: 'top' }}></canvas>
                                         </div>
                                     </li>
-                                    <li className="ms-auto"><span className="counter text-info">911</span></li>
+                                    <li className="ms-auto"><span className="counter text-info" style={{text: '40px'}}>{topHunts.hunt_name}</span></li>
                                 </ul>
                             </div>
+                            </a>
                         </div>
                     </div>
                     <div className="row">
@@ -412,8 +580,8 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <footer className="footer text-center"> 2021 © Ample Admin brought to you by
-                    <a href="https://www.wrappixel.com/">wrappixel.com</a>
+                <footer className="footer text-center"> 2023 © Admin Panel brought to you by <i></i>
+                    <a href="https://www.webnmobappssolutions.com">webnmobappssolutions.com</a>
                 </footer>
             </div>
         </>

@@ -38,7 +38,7 @@ const structure = [
   },
   {
     id: 5,
-    label: "All Hunters ",
+    label: "Manage Hunters ",
     link: "/app/all-hunters",
     icon: <PeopleIcon />,
   },

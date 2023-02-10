@@ -19,7 +19,7 @@ const AllHunters = () => {
   // const id = useParams()
   const [datas, setDatas] = useState([]);
   const [search, setSearch] = useState("");
-  const [status, setStatus] = useState(0);
+  const [status, setStatus] = useState(1);
   const [pageNumber, setPageNumber] = useState(0);
   const usersPerPage = 5;
   const pagesVisited = pageNumber * usersPerPage;
@@ -30,7 +30,7 @@ const AllHunters = () => {
   };
 
   //getHunterData
-  const getHuntData = () => {
+  const getHunterData = () => {
     axios
       .get(URL + "/web/api/getAllHunters", {
         Accept: "Application",
@@ -45,8 +45,41 @@ const AllHunters = () => {
   };
 
   useEffect(() => {
-    getHuntData();
+    getHunterData();
   }, []);
+
+
+  //Handle Status
+  const handleStatus = async(hunter_status, hunterID) => {
+    var getStatus = "";
+    if (hunter_status === 1) {
+      getStatus = '2';
+    } else {
+      getStatus = '1';
+    }
+
+    // console.log(hunter_status+" , "+ hunterID);
+    const request = {
+      id: hunterID,
+      hunter_status: getStatus,
+    };
+
+    await axios
+      .post(URL + '/web/api/hunterStatus', request)
+      .then((res) => {
+        if(res){
+          getHunterData() 
+          toast.success(res.data.message)
+
+        }
+       
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  //Handle Status
 
   return (
     <>
@@ -138,9 +171,6 @@ const AllHunters = () => {
 </div>
 </div> : 
 
-
-
-
               <div className="manage-admins-main-area">
                 <div className="manage-admins-table-area">
                   <table className="table table-column-center">
@@ -152,6 +182,7 @@ const AllHunters = () => {
                         <th>Total Hunts</th>
                         <th>Recent Active(Date)</th>
                         <th>Action</th>
+                        <th>Active/Inactive</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -205,6 +236,20 @@ const AllHunters = () => {
                                   ></i>
                                 </Link>
                               </td>
+
+                              <td>
+                        <BootstrapSwitchButton
+                          onlabel="Active"
+                          checked={Item.hunterStatus == '1' ? true : false}
+                          width={100}
+                          offlabel="Inactive"
+                          onstyle="success"
+                          onChange={(checked) => {
+                            handleStatus(Item.hunterStatus, Item.id);
+                            setStatus(checked);
+                          }}
+                        />
+                      </td>
                             </tr>
                           );
                         })}
@@ -231,8 +276,8 @@ const AllHunters = () => {
         </div>
       </div>
       <footer className="footer text-center">
-        2022 © Admin Panel brought to you by
-        <a href="https://https://www.webnmobappssolutions.com">
+        2023 ©Admin Panel brought to you by <i> </i>
+        <a href="https://www.webnmobappssolutions.com">
           webnmobappssolutions.com
         </a>
       </footer>

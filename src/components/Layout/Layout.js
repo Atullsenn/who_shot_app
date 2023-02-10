@@ -7,23 +7,18 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Dashboard from "../Dashboard/Dashboard";
 import AllHunters from "../AllHunters/AllHunters";
-import Statistics from "../Statistics/Statistics";
 import NotificationDetails from "../Admin/Notifications/notificatonDetails";
-import EditParking from "../Admin/Manage Admin/EditParking";
 import Maps from "../../pages/maps";
 import Charts from "../../pages/charts";
-import AddAdmin from "../Admin/AddAdmin";
 import Settings from "../Settings/Settings";
 import CreateTermsandservices from "../Terms and Services/CreateTermsandservices";
 import CreatePrivacypolicy from "../Privacy Policy/CreatePrivacypolicy";
 import PrivacyPolicy from "../Privacy Policy/PrivacyPolicy";
 import { useLayoutState } from "../../context/LayoutContext";
-import CustomersDetails from '../Admin/CustomersDetails'
 import ContactDetails from "../Contactus/ContactDetails";
 import AllNotification from "../Admin/Notifications/AllNotification";
 import BasicReports from "../BasicReports/BasicReports";
 import ManageHunts from "../ManageHunts/ManageHunts";
-import CustomersParkingDetails from "../Admin/CustomersParkingDetails";
 import AboutPage from "../About/AboutPage";
 import DetailsOfGroup from "../DetailsofGroup/DetailsOfGroup";
 import ManageGroups from "../ManageGroup/ManageGroups";
@@ -55,11 +50,6 @@ function Layout(props) {
           <Switch>
             <Route path="/app/dashboard" component={Dashboard} />
             <Route path="/app/all-hunters/" component={AllHunters} />
-            <Route path="/app/statistics" component={Statistics} />
-            <Route path='/app/editparking/:id' component={EditParking} />
-            <Route path="/app/customersdetails/:id" component={CustomersDetails} />
-            <Route path="/app/customersparkingdetails" component={CustomersParkingDetails} />
-            <Route path="/app/add-admin" component={AddAdmin} />
             <Route exact path="/app/ui" render={() => <Redirect to="/app/ui/icons" />} />
             <Route path="/app/ui/maps" component={Maps} />
             <Route path="/app/ui/charts" component={Charts} />
