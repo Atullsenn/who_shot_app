@@ -51,7 +51,7 @@ function useUserDispatch() {
 export { UserProvider, useUserState, useUserDispatch, loginUser, signOut };
 
 function loginUser(dispatch, login, password, history, setIsLoading, setError) {
-  let url = 'http://localhost:8000/web/api/loginAdmin';
+  let url = URL +'/web/api/loginAdmin';
   setError(false);
   axios.post(url, {
     email: login,
