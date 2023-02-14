@@ -467,7 +467,7 @@ const BasicReports = () => {
       </div>
       <footer className="footer text-center">
         {" "}
-        2023 © Admin Panel brought to you by <i></i>
+        2023 © Admin Panel brought to you by <i> </i>
         <a href="https://www.webnmobappssolutions.com">
           webnmobappssolutions.com
         </a>
@@ -477,3 +477,5 @@ const BasicReports = () => {
 };
 
 export default BasicReports;
+
+//https://aws.amazon.com/premiumsupport/knowledge-center/ec2-server-refused-our-key/
